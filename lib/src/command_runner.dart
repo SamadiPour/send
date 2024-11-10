@@ -27,8 +27,8 @@ class CommandRunner {
     _run(
       'flutter',
       ['doctor'],
-      onStdout: (data) => _stdout(data, outputLevel ?? this.outputLevel),
-      onStderr: (data) => _stderr(data, outputLevel ?? this.outputLevel),
+      onStdout: (data) => _stdout(data, outputLevel: outputLevel),
+      onStderr: (data) => _stderr(data, outputLevel: outputLevel),
     );
   }
 
@@ -39,8 +39,8 @@ class CommandRunner {
     _run(
       'flutter',
       ['clean'],
-      onStdout: (data) => _stdout(data, outputLevel ?? this.outputLevel),
-      onStderr: (data) => _stderr(data, outputLevel ?? this.outputLevel),
+      onStdout: (data) => _stdout(data, outputLevel: outputLevel),
+      onStderr: (data) => _stderr(data, outputLevel: outputLevel),
     );
   }
 
@@ -93,7 +93,11 @@ class CommandRunner {
   /// Stdout
   /// This function is used to write the message to stdout.
   /// The message is written only if the output level is all.
-  void _stdout(String message, CommandOutputLevel outputLevel) {
+  void _stdout(
+    String message, {
+    CommandOutputLevel? outputLevel,
+  }) {
+    outputLevel ??= this.outputLevel;
     if (outputLevel == CommandOutputLevel.all) {
       stdout.write(message);
     }
@@ -102,7 +106,11 @@ class CommandRunner {
   /// Stderr
   /// This function is used to write the message to stderr.
   /// The message is written only if the output level is all or error.
-  void _stderr(String message, CommandOutputLevel outputLevel) {
+  void _stderr(
+    String message, {
+    CommandOutputLevel? outputLevel,
+  }) {
+    outputLevel ??= this.outputLevel;
     if (outputLevel == CommandOutputLevel.all ||
         outputLevel == CommandOutputLevel.error) {
       stderr.write(message);
