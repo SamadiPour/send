@@ -1,3 +1,5 @@
+import 'deployer_config.dart';
+
 abstract class Deployer {
   DeployerConfig config;
   Deployer(this.config);
@@ -6,5 +8,3 @@ abstract class Deployer {
   Future<void> validate();
   Future<void> installDependencies();
 }
-
-class DeployerConfig {}

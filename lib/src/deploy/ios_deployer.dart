@@ -1,7 +1,8 @@
 import 'deployer.dart';
+import 'deployer_config.dart';
 
-class IosDeployer extends Deployer {
-  IosDeployer(DeployerConfig config) : super(config);
+class IOSDeployer extends Deployer {
+  IOSDeployer(DeployerConfig config) : super(config);
 
   @override
   Future<void> deploy() {

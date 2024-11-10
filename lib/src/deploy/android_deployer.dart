@@ -1,4 +1,5 @@
 import 'deployer.dart';
+import 'deployer_config.dart';
 
 class AndroidDeployer extends Deployer {
   AndroidDeployer(DeployerConfig config) : super(config);

@@ -1,0 +1,12 @@
+output_level: none
+version_strategy: none
+
+android:
+  credential_file_path: ""
+  track_name: ""
+  release_note: ""
+
+ios:
+  team_key_id: ""
+  developer_id: ""
+  release_note: ""
