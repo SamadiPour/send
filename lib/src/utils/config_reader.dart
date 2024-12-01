@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import '../globals.dart' as globals;
 import 'package:send/src/deploy/deployer_config.dart';
 import 'package:send/src/utils/utils.dart';
 import 'package:yaml/yaml.dart';
@@ -12,20 +13,22 @@ class ConfigReader {
   static Future<DeployerConfig?> read({
     String? configPath,
   }) async {
+    final logger = globals.logger;
+    logger.printBox('Welcome to Send!');
     // get the config file
     final File configFile;
     if (configPath == null) {
-      final rootDirectory = await findProjectRoot();
+      final rootDirectory = await findProjectRoot(logger);
       configFile = File('$rootDirectory/deploy.yaml');
     } else {
       configFile = File(configPath);
     }
 
     // check if the config file exists
-    print('Reading config from ${configFile.path}');
+    logger.printStatus('Reading config from ${configFile.path}');
     if (!await configFile.exists()) {
       // todo: better error output
-      print('Error: Config file not found');
+      logger.printError('Error: Config file not found');
       return null;
     }
 
