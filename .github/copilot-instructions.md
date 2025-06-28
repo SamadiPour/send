@@ -44,3 +44,4 @@ deployments and platform-specific deployments through a modular, extensible arch
   production).
 - The tool should be able to handle versioning and build number management.
 - The tool should be able to handle signing and credentials management for both Android and iOS.
+- The tool will not have any dry-run mode, as it is not needed.

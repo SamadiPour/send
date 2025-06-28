@@ -35,7 +35,7 @@ flutter pub get
 
 ### 2. Configuration
 
-Create a `deploy.yaml` file in your project root:
+Follow the setup documentation and create a `deploy.yaml` file in your project root:
 
 ```yaml
 # Send Deployment Configuration
