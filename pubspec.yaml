@@ -1,6 +1,6 @@
 name: send
 description: A Flutter package to help deploy and manage Continuous Integration (CI) processes
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/SamadiPour/send
 repository: https://github.com/SamadiPour/send
 issue_tracker: https://github.com/SamadiPour/send/issues
@@ -10,10 +10,12 @@ environment:
   sdk: ^3.5.4
 
 dependencies:
-  args: ^2.6.0
-  yaml: ^3.1.2
-  yaml_edit: ^2.2.1
+  args: ^2.7.0
+  yaml: ^3.1.3
+  yaml_edit: ^2.2.2
+  googleapis: ^14.0.0
+  googleapis_auth: ^2.0.0
 
 dev_dependencies:
-  test: ^1.25.8
-  lints: ^5.0.0
+  test: ^1.26.2
+  lints: ^6.0.0

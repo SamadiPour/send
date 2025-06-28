@@ -1,5 +1,5 @@
-import 'package:send/src/utils/config_reader.dart';
+import 'package:send/src/cli/cli.dart';
 
 Future<void> main(List<String> arguments) async {
-  ConfigReader.read(configPath: 'example/deploy.yaml');
+  await CommandLineInterface.run(arguments);
 }

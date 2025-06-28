@@ -1,12 +1,57 @@
-output_level: none
-version_strategy: none
+# Send Deployment Configuration
+# This file defines how your Flutter app should be deployed to various platforms
 
+# Global Settings
+output_level: all                    # none, error, all
+version_strategy: auto              # none, auto, manual
+custom_version: "1.0.0"            # Used when version_strategy is manual
+
+# Android Configuration
 android:
-  credential_file_path: ""
-  track_name: ""
-  release_note: ""
+  # Google Play Console API Configuration
+  credential_file_path: "android/service-account-key.json"  # Path to service account JSON key
+  track_name: "internal"                                     # internal, alpha, beta, production
+  package_name: "com.example.myapp"                         # Android package name (required)
+  flavor: ""                                                 # Build flavor (optional)
+  
+  # Build Configuration
+  build_apk: false                   # Whether to build APK
+  build_appbundle: true              # Whether to build App Bundle (recommended for Google Play)
+  
+  # Release Notes
+  release_note: "New version with bug fixes and improvements"
+  
+  # Additional build arguments (optional)
+  additional_build_args:
+    obfuscate: "true"
+    split-debug-info: "build/app/outputs/symbols"
 
+# iOS Configuration
 ios:
-  team_key_id: ""
-  developer_id: ""
-  release_note: ""
+  # App Store Connect API Configuration
+  api_key_id: "ABC123DEF4"                    # App Store Connect API Key ID
+  api_key_issuer: "12345678-1234-1234-1234-123456789abc"  # Issuer ID
+  api_key_path: "ios/AuthKey_ABC123DEF4.p8"   # Path to .p8 API key file
+  
+  # Team and App Configuration
+  team_id: "ABCD123456"              # Apple Developer Team ID
+  bundle_id: "com.example.myapp"     # iOS bundle identifier
+  
+  # Export Configuration
+  export_method: "app-store"         # app-store, ad-hoc, development, enterprise
+  export_options_plist_path: ""      # Path to custom exportOptions.plist (optional)
+  
+  # Release Notes
+  release_note: "New version with bug fixes and improvements"
+  
+  # Additional build arguments (optional)
+  additional_build_args:
+    obfuscate: "true"
+    split-debug-info: "build/ios/symbols"
+
+# Future platform configurations can be added here
+# additional_platforms:
+#   windows:
+#     store: "microsoft"
+#   web:
+#     hosting: "firebase"
